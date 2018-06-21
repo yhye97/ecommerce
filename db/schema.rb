@@ -51,6 +51,10 @@ ActiveRecord::Schema.define(version: 20180604120901) do
   create_table "products", force: :cascade do |t|
     t.string   "title"
     t.float    "price"
+    t.float    "width"
+    t.float    "length"
+    t.float    "height"
+    t.string   "url"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end

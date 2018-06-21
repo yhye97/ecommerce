@@ -9,18 +9,30 @@
 			<tr>
 				<th>Title</th>
 				<th>Price</th>
+				<th>Length</th>
+				<th>Width</th>
+				<th>Height</th>
+				<th>Image</th>
 				<th>Action</th>
 			</tr>
 		</thead>
 		<tbody>
 			<% @products.each do |product| %>
 				<tr>
-					<td><%= product.title %></td>
+					<td><%= link_to "#{product.title}", product_path(product) %></td>
 					<td><%= product.price %></td>
+					<td><%= product.length %></td>
+					<td><%= product.width %></td>
+					<td><%= product.height %></td>
+					
+					<td>
+					<img src ="<%=product.url%>" alt="<%=product.title%>" height="500" width="500">
+					</td>
 					<td>
 					<% if admin_signed_in?%>	
 						<%= link_to "Edit", edit_product_path(product) %>
 						<%= link_to "Delete", product_path(product), method: :delete %>
+						
 					<%end%>
 					</td>
 				</tr>

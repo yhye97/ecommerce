@@ -1,0 +1,79 @@
+
+
+<link href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+<script src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.0/js/bootstrap.min.js"></script>
+<script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
+<!------ Include the above in your HEAD tag ---------->
+
+<!DOCTYPE html>
+<html>
+
+    <body>
+        <div class="container">
+        	<div class="row">
+               <div class="col-xs-4 item-photo">
+                    <img style="max-width:100%;" src="<%=@product.url%>" />
+                </div>
+                <div class="col-xs-5" style="border:0px solid gray">
+                    <!-- Datos del vendedor y titulo del producto -->
+                    <h3><%=@product.title%></h3>    
+                    <h5 style="color:#337ab7">VIVIENNE WESTWOOD</h5>
+        
+                    <!-- Precios -->
+                    <h6 class="title-price">Price</h6>
+                    <h3 style="margin-top:0px;">₩ <%=@product.price%></h3>
+        
+                    <!-- Detalles especificos del producto -->
+                    <div class="section">
+                                           
+                        <div>
+                            <div class="attr" style="width:25px;background:#5a5a5a;"></div>
+                            <div class="attr" style="width:25px;background:white;"></div>
+                        </div>
+                    </div>
+                    <div class="section" style="padding-bottom:5px;">
+                        <h6 class="title-attr">Size</h6>                    
+                        <div>
+                            <div class="attr2">Length : <%=@product.length%> mm</div>
+                            <div class="attr2">Width  : <%=@product.width%> mm</div>
+                            <div class="attr2">Height : <%=@product.height%> mm</div>
+                        </div>
+                    </div>   
+                    <div class="section" style="padding-bottom:20px;">
+                        <h6 class="title-attr">Order</h6>                    
+                        <div>
+                            <div class="btn-minus"><span class="glyphicon glyphicon-minus"></span></div>
+                            <input value="1" />
+                            <div class="btn-plus"><span class="glyphicon glyphicon-plus"></span></div>
+                        </div>
+                    </div>                
+        
+                    <!-- Botones de compra -->
+                    <div class="section" style="padding-bottom:20px;">
+                        <button class="btn btn-success"><span style="margin-right:20px" class="glyphicon glyphicon-shopping-cart" aria-hidden="true"></span> Add to Cart</button>
+                       
+                    </div>                                        
+                </div>                              
+        
+                <div class="col-xs-9">
+                  
+                    <div style="width:100%;border-top:1px solid silver">
+                        <p style="padding:15px;">
+                            밑에 사진은 대한민국 평균 성인 여자 신장 (160cm)을 나타내는 사람으로 제품 실제 사이즈를 좀더 직관적으로 나타내기 위해 놓은 사진입니다. 관리자가 입력한 제품 사진으로 비교하여 편집했으므로 오차가 있을 수 있음을 경고합니다. 밑에 입력창에 사람 사진의 키를 수정할 수 있게 하여 사용자의 실제 키에 맞춰 제품 상대 크기를 알 수 있게 했습니다.
+                        </p>
+                    
+                    </div>
+                    <form action="/products/<%=@product.id%>" method="get">
+                      키 : <input type="number_field" value="<%@tall%>"> mm<br>
+                      <input type="submit" value="Submit">
+                   </form>
+                    <%  @h =(@product.height/@tall)*460%>
+                    <%  @w= (@product.width/800)*260%>
+                        <img src="http://media.frenchconnection.com/ms/fcuk/74JZX_model/1537/1024/Lilly-High-Waisted-Jeans.jpg?lc=en-GB&lv=9&404=fcuk/74JZX.jpg" height="460" width= "260">
+                        <img src="<%=@product.url%>" height="<%=@h%>" width = "<%=@w%>">    
+                </div>		
+            </div>
+        </div>        
+    </body>
+</html>
+

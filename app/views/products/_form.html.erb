@@ -1,4 +1,5 @@
 <%= form_for(@product) do |f| %>
+	
 	<div class="form-group">
 		<%= f.label :title, "Title" %>
 		<%= f.text_field :title, class: 'form-control' %>
@@ -8,7 +9,27 @@
 		<%= f.label :price, "Price" %>
 		<%= f.number_field :price, value: 1, class: 'form-control', min: 1 %>
 	</div>
-
-	<%= f.submit "Save", class: 'btn btn-success' %>
+	
+	<div class="form-group">
+		<%= f.label :length, "Length" %>
+		<%= f.number_field :length, value: 1, class: 'form-control', min: 1 %>
+	</div>
+	
+	<div class="form-group">
+		<%= f.label :width, "Width" %>
+		<%= f.number_field :width, value: 1, class: 'form-control', min: 1 %>
+	</div>
+	
+	<div class="form-group">
+		<%= f.label :height, "Height" %>
+		<%= f.number_field :height, value: 1, class: 'form-control', min: 1 %>
+	</div>
+	
+	<div class="form-group">
+		<%= f.label :url, "Image Url" %>
+		<p>제품 사진만 나온 사진을 입력해주세요. 소비자들이 실제 사이즈를 가늠할 수 있게 제품 사진을 수정할 것이니 제품 정면 사진이 나온 것을 올려주세요.</p>
+		<%= f.text_field :url, class: 'form-control'%>
+	</div>
+	<%= f.submit "Save", class: 'btn btn-success' %>-	
 <% end %>
   
